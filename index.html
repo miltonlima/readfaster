@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Read fast 2</title>
+
+
+<script>
+
+	//var elmnt = document.getElementById("textareaval");
+	//var y = elmnt.scrollTop;
+	
+	y = 1
+	s = 0;
+
+	function StartScroll(){
+		
+		//alert("teste");
+		//var elmnt = document.getElementById("textareaval");
+		//var x = elmnt.scrollLeft;
+		//var y = elmnt.scrollTop = '10';
+		var elmnt = document.getElementById("textareaval");
+		elmnt.scrollTop = y + 1;
+		y = y + 1;
+		if(s == 0){
+		setTimeout(StartScroll,150);
+		}
+		
+		
+	}
+	
+	function Restart(){
+		
+		y = 1;
+		
+	}
+	
+	function StopScroll(v){
+		
+		//alert(v.innerHTML);
+		
+		if(v.innerHTML == 'Parar'){
+			s = 1;
+			v.innerHTML = "Continuar";
+		}
+		else{
+			s = 0;
+			StartScroll();
+			v.innerHTML = "Parar";
+		}
+		
+		
+	}
+	
+	function NextScroll(){
+		
+		var elmnt = document.getElementById("textareaval");
+		y = elmnt.scrollTop;
+		
+	}
+
+</script>
+
+</head>
+<body>
+
+<div id="content" style="margin: 0 auto; width: 50%;">
+Read Fast 2<br>
+<textarea onscroll="NextScroll()" cols="40" rows="10" name="textareaval" id="textareaval" style=" font-size:18px;">&#10;&#10;&#10;&#10;&#10;&#10;</textarea><br>
+<button onclick="StartScroll();Restart();">Iniciar</button>
+<button onclick="StopScroll(this);">Parar</button>
+
+</div>
+
+
+
+</body>
+</html>
